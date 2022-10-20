@@ -15,9 +15,11 @@ def main():
         dp[i][0] = M
         M = 0
         for j in range(1,N+1):
+            if dp[i-1][j-1] == -1:
+                continue
             dp[i][j] = dp[i-1][j-1] + Xs[i-1] + B[j]
             M = max(M,dp[i][j])
 
-    print(dp)
+    print(M)
 if __name__ == '__main__':
     main()
