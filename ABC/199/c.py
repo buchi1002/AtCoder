@@ -1,18 +1,36 @@
 def main():
-    # input
     N = int(input())
-    S = str(input())
+    M = input()
     Q = int(input())
-    # compute
-    Ts = [i for i in range(2*N)]
+
+    S = [list(range(len(M)//2)), list(range(len(M)//2, len(M)))]
+    dic = [0, 1]
     for i in range(Q):
         T, A, B = map(int, input().split())
-        if T == 1:
-            Ts[A-1], Ts[B-1] = Ts[B-1], Ts[A-1]
+
+        if T == 2:
+            dic[0], dic[1] = dic[1], dic[0]
+
         else:
-            Ts = Ts[N:] + Ts[:N]
-    # output
-    for i in range(2*N):
-        print(S[Ts[i]], end = "")
-if __name__ == '__main__':
-    main()
+            if B <= N:
+                S[dic[0]][A-1], S[dic[0]][B-1] = S[dic[0]][B-1], S[dic[0]][A-1]
+            elif A <= N:
+                S[dic[0]][A-1], S[dic[1]][B-1-N] = S[dic[1]][B-1-N], S[dic[0]][A-1]
+            else:
+                S[dic[1]][A-1-N], S[dic[1]][B-1-N] = S[dic[1]][B-1-N], S[dic[1]][A-1-N]
+
+    s = ""
+    for i in range(N):
+        s += M[S[dic[0]][i]]
+    for i in range(N):
+        s += M[S[dic[1]][i]]
+
+    print(s)
+
+
+
+
+
+
+
+main()
