@@ -1,9 +1,2 @@
-def main():
-    # input
-
-    # compute
-
-    # output
-
-if __name__ == '__main__':
-    main()
+print((189 + 191 + 218)%200)
+print((186 + 189 + 191 + 218)%200)
