@@ -63,6 +63,4 @@ def main():
         C.appendleft(len(C))
         print(*B)
         print(*C)
-
-    print(dp)
 main()
