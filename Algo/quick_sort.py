@@ -1,4 +1,3 @@
-
 def QuickSort(A, p, r):
     if p < r :
         q = Partition(A, p, r)
@@ -15,20 +14,3 @@ def Partition(A,p,r):
             A[i], A[j] = A[j], A[i]
     A[i+1], A[r] = A[r], A[i+1]
     return i+1
-
-
-############################################
-from functools import cmp_to_key
-
-def cmp(a, b):
-    if a == b: return 0
-    return -1 if a < b else 1
-
-def cmptuple(a, b):
-    return cmp(a[1], b[1]) or cmp(b[0], a[0])
-
-def main():
-    xs = [(4, 90), (-9, 12), (42, 12), (100, 12), (1, 1), (-123, 1)]
-    print(sorted(xs, key=cmp_to_key(cmptuple)))
-
-main()

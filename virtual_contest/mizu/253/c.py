@@ -1,13 +1,17 @@
 import math
+def main():
+    R, X, Y = map(int, input().split())
 
-R, X, Y = map(int,input().split())
+    d = X**2 + Y**2
+    k = 0
+    while ((k+1)**2)*(R**2) <= d:
+        k += 1
 
-q = math.floor(math.sqrt((X**2 + Y**2)//(R**2)))
-r = (X**2 + Y**2)%(R**2)
-
-if r == 0:
-    print(q)
-elif X**2 + Y**2 <= 4*(R**2):
-    print(2)
-else:
-    print(q+1)
+    if k == 0:
+        print(2)
+    elif (k**2)*(R**2) == d:
+        print(k)
+    else:
+        print(k+1)
+if __name__ == '__main__':
+    main()
