@@ -25,5 +25,3 @@ def main():
         c += 1
     for i in range(N):
         print(Cs[i])
-if __name__ == '__main__':
-    main()
