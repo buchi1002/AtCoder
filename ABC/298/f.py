@@ -11,22 +11,12 @@ def main():
         Cs[c] += x
         grid[(r,c)] = x
 
-    R = -1
-    RM = -1
-    for r in Rs.keys():
-        if Rs[r] >= RM:
-            R = r
-            RM = Rs[r]
+    S = -1
+    for y, x in grid.keys():
+        print(y, x, Rs[y], Cs[x], grid[(y, x)])
+        if S < Rs[y] + Cs[x] - grid[(y, x)]:
+            S = max(S, Rs[y] + Cs[x] - grid[(y, x)])
 
-    C = -1
-    CM = -1
-    for c in Cs.keys():
-        if Cs[c] >= CM:
-            C = c
-            CM = Cs[c]
+    print(S)
 
-    print(Rs[R] + Cs[C] - grid[(R,C)])
-
-    print(Rs[2], Rs[R])
-    print(Cs[2], Cs[C])
 main()
