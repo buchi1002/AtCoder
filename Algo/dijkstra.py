@@ -1,4 +1,3 @@
-from collections import defaultdict
 from heapq import heappop, heappush
 
 def dijkstra(G:list, s:int):
