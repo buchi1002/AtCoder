@@ -20,7 +20,20 @@ def main():
         for j in range(1, W):
             cnt[i][j] = cnt[i][j-1] + cnt[i-1][j] - cnt[i-1][j-1] + int(G[i][j])
 
-    [print(*cnt[_]) for _ in range(H)]
+    dp = [[0]*W for _ in range(H)]
+
+    for i in range(H):
+        dp[i][0] = int(G[i][0])
+
+    for j in range(W):
+        dp[0][j] = int(G[0][j])
+
+    for i in range(1,H):
+        for j in range(1,W):
+            if not G[i][j]:
+                continue
+            dp[i][j] += 1
+            if dp[i-1][j-1] != 0:
 
 
 main()
