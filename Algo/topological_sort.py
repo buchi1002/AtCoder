@@ -1,5 +1,4 @@
 # (参考)https://output-zakki.com/topological_sort/
-
 from collections import deque
 def topological_sort(G, into_num):
     q = deque()
