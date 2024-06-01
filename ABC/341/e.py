@@ -1,5 +1,23 @@
+def ren(row, index):
+    if row[index] == index:
+        return index
+    else:
+        ren(row, row[index])
+
 def rev(left, right, L, R):
-    pass
+    if L != 0:
+        if left[L] != L:
+            right[L-1] = right[L]
+            ren
+        else:
+            right[L-1] = L-1
+
+    if R != len(right)-1:
+        if right[R] != R:
+            right[R+1] = right[R]
+        else:
+            right[R+1] = R+1
+
 def judge(left, right, L, R):
     pass
 def main():
@@ -13,12 +31,10 @@ def main():
         if S[-i-1] != S[-i]:
             right[-i-1] = right[-i]
 
-    print(right)
-    print(left)
     for _ in range(Q):
         q, L, R = map(int, input().split())
         if q == 1:
-            rev(left, right, L, R)
+            rev(left, right, L-1, R-1)
         if q == 2:
-            judge(left, right, L, R)
+            if
 main()
