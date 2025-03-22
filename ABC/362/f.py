@@ -30,6 +30,21 @@ def rec(key, G, seen, path, end):
             return
     return
 
+def rec(key, G, seen, path, end):
+    if path[-1]==end:
+        return
+    if seen[key]:
+        return
+    seen[key] = True
+    for k in G[key]:
+        path.append(k)
+        rec(k, G, seen, path, end)
+        if path[-1] != end:
+            path.pop()
+        else:
+            return
+    return
+
 def main():
     N = int(input())
     G = [list() for _ in range(N)]
@@ -61,4 +76,7 @@ def main():
     dc = list()
     for k in G[c]:
         dc.append(list())
+        seen = [False]*N
+        seen[c] = True
+        rec
 main()
